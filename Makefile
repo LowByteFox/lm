@@ -1,11 +1,11 @@
 TARGET = x86_64
 CC = cc
 AS = cc
-CFLAGS = -g0 -O2 -Iinclude
+CFLAGS = -g -Os -Iinclude -fno-stack-protector
 CFLAGS_EXTRA = -static -nostartfiles -nostdlib -z noexecstack
 
 OBJS = arch/$(TARGET)/crti.o arch/$(TARGET)/crtn.o arch/$(TARGET)/start.o \
-	src/main.o
+	arch/$(TARGET)/syscalls.o src/main.o src/print.o
 
 all: lm
 

@@ -26,3 +26,13 @@ read:
 write:
 	mov	$1, %eax
 	jmp	__syscall
+
+.global open
+open:
+	mov	$2, %eax
+	jmp	__syscall
+
+.global close
+close:
+    mov $3, %eax
+    jmp __syscall

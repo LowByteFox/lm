@@ -41,7 +41,9 @@ int eprint(const char *text)
 void flush()
 {
     for (int i = 0; i < 2; i++) {
-        if (buffers[i].offset > 0)
+        if (buffers[i].offset > 0) {
             write(stdout, buffers[i].buffer, buffers[i].offset);
+            buffers[i].offset = 0;
+        }
     }
 }
